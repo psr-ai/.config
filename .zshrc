@@ -118,11 +118,15 @@ source ~/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-source $HOMEBREW_PREFIX/opt/chruby/share/chruby/chruby.sh
+if [ `uname` = "Darwin" ]; then
+	echo "setting chruby"
+	source $HOMEBREW_PREFIX/opt/chruby/share/chruby/chruby.sh
+	echo "setting pyenv"
+	PATH=$(pyenv root)/shims:$PATH
+fi
 
 # rupa/z
 . ~/GitHub/rupa/z/z.sh
-PATH=$(pyenv root)/shims:$PATH
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
