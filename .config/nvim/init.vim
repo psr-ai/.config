@@ -20,6 +20,8 @@ Plug 'glepnir/oceanic-material'
 Plug 'neoclide/coc.nvim'
 Plug 'kien/ctrlp.vim'
 Plug 'mhinz/vim-grepper'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
 call plug#end()
 
@@ -107,3 +109,8 @@ let g:grepper.jump          = 1
 let g:grepper.next_tool     = '<leader>g'
 let g:grepper.simple_prompt = 1
 let g:grepper.quickfix      = 0
+
+if executable("rg")
+	set grepprg=rg\ --vimgrep\ --smart-case\ --hidden  
+	set grepformat=%f:%l:%c:%m
+endif

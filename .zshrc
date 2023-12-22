@@ -1,3 +1,4 @@
+export PATH=/opt/homebrew/bin:$PATH
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -116,13 +117,6 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 source ~/powerlevel10k/powerlevel10k.zsh-theme
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-if [ `uname` = "Darwin" ]; then
-	source $HOMEBREW_PREFIX/opt/chruby/share/chruby/chruby.sh
-	PATH=$(pyenv root)/shims:$PATH
-fi
-
 # rupa/z
 . ~/GitHub/rupa/z/z.sh
 
@@ -132,3 +126,19 @@ export NVM_DIR="$HOME/.nvm"
 
 # for .config bare repo
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+
+export GPG_TTY=$(tty)
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/psr/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/psr/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/psr/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/psr/google-cloud-sdk/completion.zsh.inc'; fi
+
+eval "$(pyenv virtualenv-init -)"
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+if [ `uname` = "Darwin" ]; then
+	#source $HOMEBREW_PREFIX/opt/chruby/share/chruby/chruby.sh
+	PATH=$(pyenv root)/shims:$PATH
+fi
