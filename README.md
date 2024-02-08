@@ -17,5 +17,8 @@ In order to install the config on any new laptop:
 ## Nvim coc install error
 `:call coc#util#install()`
 
+## Nvim install silver searcher
+MAC: `brew install the_silver_searcher`
+
 ## GPG Setup
 Follow instructions on this gist: https://gist.github.com/troyfontaine/18c9146295168ee9ca2b30c00bd1b41e

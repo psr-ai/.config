@@ -18,7 +18,6 @@ Plug 'rafi/awesome-vim-colorschemes'
 Plug 'ryanoasis/vim-devicons'
 Plug 'glepnir/oceanic-material'
 Plug 'neoclide/coc.nvim'
-Plug 'kien/ctrlp.vim'
 Plug 'mhinz/vim-grepper'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -114,3 +113,5 @@ if executable("rg")
 	set grepprg=rg\ --vimgrep\ --smart-case\ --hidden  
 	set grepformat=%f:%l:%c:%m
 endif
+
+nnoremap <c-p> :Files<CR>
