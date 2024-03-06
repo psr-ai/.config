@@ -35,4 +35,27 @@ require("lazy").setup({
 	{'hrsh7th/cmp-nvim-lsp'},
 	{'hrsh7th/nvim-cmp'},
 	{'L3MON4D3/LuaSnip'},
+	{'lervag/vimtex'},
+	{
+		'windwp/nvim-autopairs',
+		event = "InsertEnter",
+		config = true
+		-- use opts = {} for passing setup options
+		-- this is equalent to setup({}) function
+	},
+	{ 'github/copilot.vim' },
+	  {
+	    "CopilotC-Nvim/CopilotChat.nvim",
+	    branch = "canary",
+	    dependencies = {
+	      { "zbirenbaum/copilot.lua" }, -- or github/copilot.vim
+	      { "nvim-lua/plenary.nvim" }, -- for curl, log wrapper
+	      { "nvim-telescope/telescope.nvim" }, -- for telescope help actions (optional)
+	    },
+	    opts = {
+	      debug = true, -- Enable debugging
+	      -- See Configuration section for rest
+	    },
+	    -- See Commands section for default commands if you want to lazy load on them
+	  },
 })

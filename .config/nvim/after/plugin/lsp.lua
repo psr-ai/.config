@@ -37,3 +37,5 @@ end)
 require('lspconfig').tsserver.setup({})
 require('lspconfig').rust_analyzer.setup({})
 require'lspconfig'.pyright.setup{}
+require'lspconfig'.texlab.setup{}
+require'lspconfig'.gopls.setup{}
