@@ -9,7 +9,7 @@ cmp.setup({
 	},
 	mapping = cmp.mapping.preset.insert({
 		['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
-		['<Tab>'] = cmp.mapping.select_next_item(cmp_select),
+		['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
 		['<C-y>'] = cmp.mapping.confirm({ select = true }),
 		["<C-Space>"] = cmp.mapping.complete(),
 	})
@@ -37,3 +37,5 @@ end)
 require('lspconfig').tsserver.setup({})
 require('lspconfig').rust_analyzer.setup({})
 require'lspconfig'.pyright.setup{}
+require'lspconfig'.texlab.setup{}
+require'lspconfig'.gopls.setup{}
