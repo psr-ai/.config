@@ -1,3 +1,5 @@
 require("psr")
 print("hello world")
 vim.opt.clipboard:append('unnamedplus')
+vim.api.nvim_set_keymap('n', '<C-u>', '20k', {noremap = true})
+vim.api.nvim_set_keymap('n', '<C-d>', '20j', {noremap = true})
