@@ -1,3 +1,5 @@
 require("psr")
 print("hello world")
 vim.opt.clipboard:append('unnamedplus')
+vim.keymap.set("n", "<leader>d", ':vsplit<cr>')
+vim.api.nvim_create_user_command('ReloadConfig', 'luafile ~/.config/nvim/init.lua', {})

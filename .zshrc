@@ -5,15 +5,6 @@ export PATH=/opt/homebrew/bin:$PATH
 #if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
 #  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 #fi
-
-echo '----------------------------'
-echo '     _______  _____   ____'
-echo '    / ___  / / ___/  / __/'
-echo '   / /__/ / (__  )  / /'
-echo '  / _____/  ____/  / /  '
-echo ' / /'
-echo ''
-echo '----------------------------'
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -115,7 +106,7 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-source ~/powerlevel10k/powerlevel10k.zsh-theme
+# source ~/powerlevel10k/powerlevel10k.zsh-theme
 
 # rupa/z
 . ~/GitHub/rupa/z/z.sh
@@ -129,12 +120,6 @@ alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
 export GPG_TTY=$(tty)
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/psr/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/psr/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/psr/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/psr/google-cloud-sdk/completion.zsh.inc'; fi
-
 eval "$(pyenv virtualenv-init -)"
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -142,3 +127,38 @@ if [ `uname` = "Darwin" ]; then
 	#source $HOMEBREW_PREFIX/opt/chruby/share/chruby/chruby.sh
 	PATH=$(pyenv root)/shims:$PATH
 fi
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/psr/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/psr/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/Users/psr/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/psr/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+export PATH="/Users/psr/softwares/texlab/target/release:$PATH"
+
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/psr/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/psr/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/psr/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/psr/google-cloud-sdk/completion.zsh.inc'; fi
+
+export DBUS_SESSION_BUS_ADDRESS="unix:path=$DBUS_LAUNCHD_SESSION_BUS_SOCKET"
+export PATH="/Users/psr/GitLab/psr.ai/math5466/hw6:$PATH"
+export GOPATH="$HOME/go"
+export PATH="$GOPATH/bin:$PATH"
+alias k=kubectl
+
+k-login() {
+	gcloud container clusters get-credentials $1 --region=$2
+}
+export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
